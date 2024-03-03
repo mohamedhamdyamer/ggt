@@ -2,3 +2,4 @@ power-max
 unity
 power-store
 ppdm
+Avamar
