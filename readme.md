@@ -1,1 +1,3 @@
 this is the readme file of the repo!
+
+we need to put some details ...
