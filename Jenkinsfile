@@ -14,7 +14,7 @@ pipeline {
                 label 'agent-02'
             }
             steps {
-                sh "sed -i 's/Environment built for:/Environment built for: Jenkins Testing .../g' /tmp/ggt/index.html"
+                sh "sed -i 's/Environment built for:/Environment built for: Jenkins Testing YES YES :-), YAY :-D .../g' /tmp/ggt/index.html"
                 sh "sed -i 's/Build Number:/Build Number: $BUILD_NUMBER/g' /tmp/ggt/index.html"
             }
         }
