@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sh 'cp default.conf nginx.conf Dockerfile /tmp/ggt'
                 sh "ssh amer@192.168.8.186 'echo ctcvmware | sudo -S docker build -t my-nginx /tmp/ggt'"
-                sh "ssh amer@192.168.8.186 'echo ctcvmware | sudo -S docker run -p 9090:80 my-nginx:latest'"
+                sh "ssh amer@192.168.8.186 'echo ctcvmware | sudo -S docker run -d -p 8888:8888 my-nginx:latest'"
                 echo "container deployed! ..."
             }
         }
