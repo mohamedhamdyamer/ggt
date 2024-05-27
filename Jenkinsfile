@@ -11,5 +11,14 @@ pipeline {
                 sh 'cat index.html'
             }
         }
+        stage('append-build-number') {
+            agent {
+                label 'agent-02'
+            }
+            steps {
+                sh "sed -i 's/Build Number:/Build Number: $BUILD_NUMBER/g' index.html"
+                sh 'cat index.html'
+            }
+        }
     }
 }
