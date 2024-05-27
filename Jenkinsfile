@@ -18,5 +18,10 @@ pipeline {
                 sh "sed -i 's/Build Number:/Build Number: $BUILD_NUMBER/g' /tmp/ggt/index.html"
             }
         }
+        stage('deploy-container') {
+            steps {
+                echo "container deployed! ..."
+            }
+        }
     }
 }
