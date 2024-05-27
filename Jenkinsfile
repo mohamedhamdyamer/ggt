@@ -19,7 +19,12 @@ pipeline {
             }
         }
         stage('deploy-container') {
+            agent {
+                label 'agent-03'
+            }
             steps {
+                sh 'cp default.conf nginx.conf Dockerfile /tmp/ggt'
+                
                 echo "container deployed! ..."
             }
         }
