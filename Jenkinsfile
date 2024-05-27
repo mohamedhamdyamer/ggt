@@ -24,7 +24,7 @@ pipeline {
             }
             steps {
                 sh 'cp default.conf nginx.conf Dockerfile /tmp/ggt'
-                sh "ssh amer@192.168.8.186 'sudo docker build -t my-nginx /tmp/ggt'"
+                sh "ssh amer@192.168.8.186 'pwd'"
                 echo "container deployed! ..."
             }
         }
