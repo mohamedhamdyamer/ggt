@@ -4,20 +4,18 @@ pipeline {
     }
 
     stages {
-        stage('append-env') {
+        stage('copy-to-tmp-location') {
             steps {
-                sh 'cat index.html'
-                sh "sed -i 's/Environment built for:/Environment built for: Jenkins Testing .../g' index.html"
-                sh 'cat index.html'
+                sh 'cp index.html /tmp/ggt/index.html'
             }
         }
-        stage('append-build-number') {
+        stage('append-details') {
             agent {
                 label 'agent-02'
             }
             steps {
-                sh "sed -i 's/Build Number:/Build Number: $BUILD_NUMBER/g' index.html"
-                sh 'cat index.html'
+                sh "sed -i 's/Environment built for:/Environment built for: Jenkins Testing .../g' /tmp/ggt/index.html"
+                sh "sed -i 's/Build Number:/Build Number: $BUILD_NUMBER/g' /tmp/ggt/index.html"
             }
         }
     }
