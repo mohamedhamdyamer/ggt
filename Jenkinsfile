@@ -4,35 +4,12 @@ pipeline {
     }
     
     stages {
-
-        stage('init') {
+        stage('append-env') {
             agent {
                 label 'agent-01'
             }
             steps {
-                echo 'Initializing ...'
+                sh 'cat index.html'
             }
         }
-
-        stage('build') {
-            parallel {
-                stage('build-linux') {
-                    agent {
-                        label 'agent-02'
-                    }
-                    steps {
-                        echo 'Building on Linux ...'
-                    }
-                }
-                stage('build-win') {
-                    agent {
-                        label 'agent-03'
-                    }
-                    steps {
-                        echo 'Building on Windows ...'
-                    }
-                }
-            }
-        }
-    }
 }
