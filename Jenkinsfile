@@ -12,4 +12,5 @@ pipeline {
                 sh 'cat index.html'
             }
         }
+    }
 }
